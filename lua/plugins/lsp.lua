@@ -8,7 +8,7 @@ return {
 			require("lspconfig").rust_analyzer.setup({})
 			require("lspconfig").lua_ls.setup({})
 			require("lspconfig").elixirls.setup({
-				cmd = { vim.fn.getenv("HOME") .. "/.local/bin/elixir-ls/language_server.sh" },
+				cmd = { vim.fn.getenv("HOME") .. "/src/elixir-ls-v0.23.0/language_server.sh" },
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
