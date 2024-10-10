@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>fta", function()
+	vim.fn.system("cargo fmt")
+	vim.notify("Run cargo format")
+	vim.cmd(":e")
+end, { desc = "Format current rust project" })
