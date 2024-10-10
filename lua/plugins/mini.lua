@@ -4,7 +4,13 @@ return {
 		version = false,
 		config = function()
 			require("mini.animate").setup()
-			require("mini.notify").setup()
+			local notify = require("mini.notify")
+			notify.setup()
+			vim.notify = notify.make_notify({
+				ERROR = { duration = 5000 },
+				WARN = { duration = 4000 },
+				INFO = { duration = 3000 },
+			})
 			require("mini.pairs").setup()
 			require("mini.files").setup()
 			require("mini.comment").setup()
