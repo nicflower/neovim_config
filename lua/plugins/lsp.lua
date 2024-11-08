@@ -8,8 +8,9 @@ return {
 			require("lspconfig").rust_analyzer.setup({})
 			require("lspconfig").lua_ls.setup({})
 			require("lspconfig").elixirls.setup({
-				cmd = { vim.fn.getenv("HOME") .. "/src/elixir-ls-v0.23.0/language_server.sh" },
+				cmd = { vim.fn.getenv("HOME") .. "/src/elixir-ls-v0.24.1/language_server.sh" },
 			})
+            require("lspconfig").zls.setup({})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
