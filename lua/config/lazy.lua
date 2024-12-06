@@ -20,7 +20,6 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.wrap = false
 vim.opt.expandtab = true --turn tabs to spaces
 vim.opt.tabstop = 4 --1 tab = 4 spaces
 vim.opt.shiftwidth = 4
