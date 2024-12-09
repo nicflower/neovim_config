@@ -63,6 +63,19 @@ return {
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "[T]oggle Inlay [H]ints")
 					end
+
+                    -- format on save
+                    client = vim.lsp.get_client_by_id(event.data.client_id)
+                    if not client then return end
+                    if client.supports_method('textDocument/formatting') then
+                        vim.api.nvim_create_autocmd('BufWritePre', {
+                            buffer = event.buf,
+                            callback = function()
+                                vim.lsp.buf.format({ bufnr = buffer, id = client.id})
+	                            vim.notify("Run lsp formatting", vim.log.levels.TRACE)
+                            end,
+                        })
+                    end
 				end,
 			})
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
