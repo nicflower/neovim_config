@@ -7,9 +7,18 @@ return {
 		config = function()
 			require("lspconfig").rust_analyzer.setup({})
 			require("lspconfig").lua_ls.setup({})
-			require("lspconfig").elixirls.setup({
-				cmd = { vim.fn.getenv("HOME") .. "/src/elixir-ls-v0.24.1/language_server.sh" },
-			})
+			require("lspconfig").lexical.setup({
+                  cmd = { vim.fn.getenv("HOME") .. "/src/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+                  --root_dir = function(fname)
+                  --    return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
+                  --end,
+                  filetypes = { "elixir", "eelixir", "heex" },
+                  -- optional settings
+                  settings = {}
+            })
+			--require("lspconfig").elixirls.setup({
+			--	cmd = { vim.fn.getenv("HOME") .. "/src/elixir-ls-v0.24.1/language_server.sh" },
+			--})
             require("lspconfig").elmls.setup({
                 cmd = {"elm-language-server"},
             })
