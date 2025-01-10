@@ -3,6 +3,7 @@ return {
         "neovim/nvim-lspconfig",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
+            "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         },
         config = function()
             require("lspconfig").rust_analyzer.setup({})
@@ -23,6 +24,12 @@ return {
                 cmd = { "elm-language-server" },
             })
             require("lspconfig").gopls.setup {}
+
+            -- due to lsp_lines, to remove if not using lsp_lines
+            vim.diagnostic.config({
+                virtual_text = false
+            })
+            vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, { desc = "LSP: Toggle lsp lines" })
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -67,11 +74,6 @@ return {
                                 vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
                             end,
                         })
-                    end
-                    if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-                        map("<leader>th", function()
-                            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-                        end, "[T]oggle Inlay [H]ints")
                     end
 
                     -- format on save
