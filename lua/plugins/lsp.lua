@@ -24,6 +24,7 @@ return {
                 cmd = { "elm-language-server" },
             })
             require("lspconfig").gopls.setup {}
+            require("lspconfig").zls.setup {}
 
             -- due to lsp_lines, to remove if not using lsp_lines
             vim.diagnostic.config({
