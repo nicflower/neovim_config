@@ -25,7 +25,7 @@ vim.opt.tabstop = 4      --1 tab = 4 spaces
 vim.opt.shiftwidth = 4
 vim.opt.virtualedit = "block"
 vim.opt.inccommand = "split"
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = vim.o.clipboard .. 'unnamed,unnamedplus'
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 -- disable opening new window when saving with errors zig files
