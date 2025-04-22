@@ -8,9 +8,15 @@
 }]]
 --
 return {
-	"EdenEast/nightfox.nvim",
-	priority = 1000,
-	config = function()
-		vim.cmd.colorscheme("nordfox")
-	end,
+    {
+      "aktersnurra/no-clown-fiesta.nvim",
+      priority = 1000,
+      opts = {
+          transparent = true
+      },
+      config = function()
+        vim.cmd.colorscheme('no-clown-fiesta')
+      end,
+      lazy = false,
+    }
 }
