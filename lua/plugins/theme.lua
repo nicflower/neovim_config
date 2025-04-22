@@ -11,11 +11,18 @@ return {
     {
       "aktersnurra/no-clown-fiesta.nvim",
       priority = 1000,
-      opts = {
-          transparent = true
-      },
       config = function()
-        vim.cmd.colorscheme('no-clown-fiesta')
+          local opts = {
+              transparent = true,
+              styles = {
+                type = { bold = true },
+                lsp = { underline = false },
+                match_paren = { underline = true },
+              },
+            }
+          local plugin = require "no-clown-fiesta"
+          plugin.setup(opts)
+          vim.cmd.colorscheme('no-clown-fiesta')
       end,
       lazy = false,
     }
