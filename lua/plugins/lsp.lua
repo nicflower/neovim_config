@@ -25,6 +25,7 @@ return {
             })
             require("lspconfig").gopls.setup {}
             require("lspconfig").zls.setup {}
+            require("lspconfig").basedpyright.setup {}
 
             -- due to lsp_lines, to remove if not using lsp_lines
             vim.diagnostic.config({
