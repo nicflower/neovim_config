@@ -31,6 +31,13 @@ vim.opt.termguicolors = true
 -- disable opening new window when saving with errors zig files
 vim.g.zig_fmt_parse_errors = 0
 
+function buf_path_to_clipboard()
+  local filepath = vim.fn.expand('%')
+  vim.fn.setreg('+', filepath) -- write to clippoard
+end
+
+vim.keymap.set('n', '<leader>pc', buf_path_to_clipboard, { noremap = true, silent = true, desc = "Copy path of the current buffer to clipboard" })
+
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
