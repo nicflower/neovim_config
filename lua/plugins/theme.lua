@@ -22,7 +22,6 @@ return {
             }
             local plugin = require "no-clown-fiesta"
             plugin.setup(opts)
-            vim.cmd.colorscheme('no-clown-fiesta')
         end,
         lazy = false,
     },
@@ -33,6 +32,7 @@ return {
                 theme = "zen"
             }
             require("kanso").setup(opts)
+            vim.cmd.colorscheme('kanso')
         end,
         lazy = false,
         priority = 1000,
