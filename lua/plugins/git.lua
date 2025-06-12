@@ -3,8 +3,8 @@ return {
         -- use :Git to call any git command from within nvim
         "tpope/vim-fugitive",
         config = function ()
-           vim.api.nvim_create_user_command('VG', 'vertical G', { desc = "Open fugitive status vertically"}) 
-           vim.api.nvim_create_user_command('VGlog', 'vertical G log', { desc = "Open fugitive log vertically"}) 
+           vim.api.nvim_create_user_command('VG', 'vertical G', { desc = "Vertical Git status"}) 
+           vim.api.nvim_create_user_command('VGlog', 'vertical G log', { desc = "Vertical Git log"}) 
         end,
     },
     {
