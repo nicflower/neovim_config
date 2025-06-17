@@ -28,12 +28,16 @@ vim.opt.inccommand = "split"
 vim.opt.clipboard = vim.o.clipboard .. 'unnamed,unnamedplus'
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
+
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+
 -- disable opening new window when saving with errors zig files
 vim.g.zig_fmt_parse_errors = 0
 
 function buf_path_to_clipboard()
   local filepath = vim.fn.expand('%')
-  vim.fn.setreg('+', filepath) -- write to clippoard
+  vim.fn.setreg('+', filepath) -- write to clipboard
 end
 
 vim.keymap.set('n', '<leader>pc', buf_path_to_clipboard, { noremap = true, silent = true, desc = "Copy path of the current buffer to clipboard" })
