@@ -11,7 +11,6 @@ return {
                 WARN = { duration = 10000 },
                 INFO = { duration = 5000 },
             })
-            require("mini.pairs").setup()
             require("mini.files").setup()
             require("mini.comment").setup()
             vim.keymap.set("n", "<leader>ex", function()
