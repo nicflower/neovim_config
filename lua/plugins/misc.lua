@@ -7,15 +7,6 @@ return {
             vim.keymap.set("n", "<leader>un", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
         end,
     },
-    -- markdown files preview inside nvim
-    {
-        "OXY2DEV/markview.nvim",
-        lazy = false,
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-tree/nvim-web-devicons"
-        }
-    },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
