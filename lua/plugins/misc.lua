@@ -5,6 +5,7 @@ return {
     {
         "mbbill/undotree",
         config = function()
+            require("undotree").setup({})
             vim.keymap.set("n", "<leader>un", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
         end,
     },
@@ -28,10 +29,15 @@ return {
         'stevearc/oil.nvim',
         config = function()
             require("oil").setup({
+                default_file_explorer = true,
+                delete_to_trash = true,
                 view_options = {
-                    show_hidden = true
-                }
-
+                    show_hidden = true,
+                    natural_order = true,
+                    is_always_hidden = function(name, _)
+                        return name == ".." or name == ".git"
+                    end
+                },
             })
 
             vim.keymap.set("n", "<leader>ex", function() require("oil").open(nil, nil, nil) end,
