@@ -45,6 +45,11 @@ end
 vim.keymap.set('n', '<leader>pc', buf_path_to_clipboard,
     { noremap = true, silent = true, desc = "Copy path of the current buffer to clipboard" })
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
