@@ -3,13 +3,6 @@ return {
     -- fade unused pane
     { "TaDaa/vimade" },
     {
-        "mbbill/undotree",
-        config = function()
-            require("undotree").setup({})
-            vim.keymap.set("n", "<leader>un", vim.cmd.UndotreeToggle, { desc = "Toggle Undotree" })
-        end,
-    },
-    {
         "folke/which-key.nvim",
         event = "VeryLazy",
         opts = {
