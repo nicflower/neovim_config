@@ -45,7 +45,7 @@ vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:
 
 function buf_path_to_clipboard()
   local filepath = vimutils.cur_file()
-  vim.fn.setreg('+', filepath)   -- write to clipboard
+  vim.fn.setreg('+', filepath) -- write to clipboard
   vim.notify("current file path copied to clipboard")
 end
 
@@ -62,7 +62,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
   end,
 })
-vim.lsp.enable({ 'lexical' })
+--
+-- LSP stuff
+vim.lsp.enable({ 'expert' })
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
@@ -71,6 +73,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+-- redirects the output of a command to a temporary buffer
+vim.api.nvim_create_user_command('Redir', function(ctx)
+  local lines = vim.split(vim.api.nvim_exec(ctx.args, true), '\n', { plain = true })
+  vim.cmd('new')
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  vim.opt_local.modified = false
+end, { nargs = '+', complete = 'command' })
 
 -- Setup lazy.nvim
 require("lazy").setup({
