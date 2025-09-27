@@ -65,7 +65,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --
 -- LSP stuff
 vim.lsp.enable({ 'expert' })
---print('lsp attacch automcd')
 vim.lsp.enable({ 'lua_ls' })
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
