@@ -65,6 +65,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --
 -- LSP stuff
 vim.lsp.enable({ 'expert' })
+--print('lsp attacch automcd')
+vim.lsp.enable({ 'lua_ls' })
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
