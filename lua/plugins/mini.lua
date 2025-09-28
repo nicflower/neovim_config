@@ -11,6 +11,6 @@ return {
       INFO = { duration = 5000 },
     })
     require("mini.comment").setup()
-    require("mini.statusline").setup({})
+    --require("mini.statusline").setup({})
   end,
 }
