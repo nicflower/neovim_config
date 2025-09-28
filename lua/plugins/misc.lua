@@ -42,5 +42,13 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
 
+  },
+  {
+  'maan2003/lsp_lines.nvim',
+  config = function()
+    require("lsp_lines").setup()
+    vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, { desc = "LSP: Toggle lsp lines" })
+  end
   }
+
 }
