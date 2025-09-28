@@ -70,6 +70,7 @@ vim.opt.completeopt = "menu,popup,fuzzy,noselect,noinsert,preview"
 vim.lsp.enable({ 'expert' })
 vim.lsp.enable({ 'lua_ls' })
 vim.lsp.enable({ 'elmls' })
+vim.lsp.enable({ 'rust_analyzer' })
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
