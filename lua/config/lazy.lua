@@ -90,6 +90,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+-- lsp diagnostics
+vim.keymap.set('n', '<leader>dq', function() vim.diagnostic.setqflist() end, { desc = "[D]iagnostic [Q]uickfix" })
+vim.keymap.set('n', '<leader>dl', function() vim.diagnostic.setloclist() end, { desc = "[D]iagnostic [L]oclist" })
+vim.diagnostic.config({ virtual_text = false })
 
 -- redirects the output of a command to a temporary buffer
 vim.api.nvim_create_user_command('Redir', function(ctx)
@@ -99,6 +103,9 @@ vim.api.nvim_create_user_command('Redir', function(ctx)
   vim.opt_local.modified = false
 end, { nargs = '+', complete = 'command' })
 
+-- quickfix navigation
+vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>', { desc = 'Next element in quickfix list' })
+vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>', { desc = 'Previous element in quickfix list' })
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {

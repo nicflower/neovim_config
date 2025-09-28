@@ -73,6 +73,12 @@ return {
         { desc = 'Go to previous fold' })
       vim.keymap.set('n', ']z', function() require('ufo').goNextClosedFold() end, { desc = 'Go to next fold' })
     end
-
+  },
+  {
+    'maan2003/lsp_lines.nvim',
+    config = function()
+      require("lsp_lines").setup()
+      vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, { desc = "LSP: Toggle lsp lines" })
+    end
   }
 }
