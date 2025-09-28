@@ -66,6 +66,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 --
 -- LSP stuff
+vim.opt.completeopt = "menu,popup,fuzzy,noselect,noinsert,preview"
 vim.lsp.enable({ 'expert' })
 vim.lsp.enable({ 'lua_ls' })
 vim.lsp.enable({ 'elmls' })
