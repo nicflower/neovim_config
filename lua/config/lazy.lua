@@ -33,6 +33,8 @@ vim.opt.termguicolors = true
 vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 
+vim.opt.cursorline = true
+
 -- disable opening new window when saving with errors zig files
 vim.g.zig_fmt_parse_errors = 0
 
