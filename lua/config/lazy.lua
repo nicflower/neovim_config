@@ -38,7 +38,7 @@ vim.opt.cursorline = true
 -- disable opening new window when saving with errors zig files
 vim.g.zig_fmt_parse_errors = 0
 
-function buf_path_to_clipboard()
+local function buf_path_to_clipboard()
   local filepath = vimutils.cur_file()
   vim.fn.setreg('+', filepath) -- write to clipboard
   vim.notify("current file path copied to clipboard")
@@ -52,12 +52,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-  end,
-})
---
+
 -- LSP stuff
 vim.opt.completeopt = "menu,popup,fuzzy,noselect,noinsert,preview"
 vim.lsp.enable({ 'expert' })
