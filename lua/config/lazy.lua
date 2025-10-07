@@ -36,6 +36,13 @@ vim.opt.spelllang = "en_us"
 -- disable opening new window when saving with errors zig files
 vim.g.zig_fmt_parse_errors = 0
 
+-- setup folding (also look at the ufo plugin)
+vim.opt.foldlevel = 99 
+vim.opt.foldlevelstart =  99
+vim.opt.foldcolumn = "1"
+vim.opt.foldenable = true
+vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldinner: ,foldclose:'
+
 function buf_path_to_clipboard()
     local filepath = vimutils.cur_file()
     vim.fn.setreg('+', filepath) -- write to clipboard
