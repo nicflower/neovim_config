@@ -68,7 +68,6 @@ return {
       vim.keymap.set('n', 'zR', function() require('ufo').openAllFolds() end, { desc = 'Open all folds' })
       vim.keymap.set('n', 'zM', function() require('ufo').closeAllFolds() end, { desc = 'Close all folds' })
       vim.keymap.set('n', 'zK', function() require('ufo').peekFoldedLinesUnderCursor() end, { desc = 'Peek fold' })
-      vim.keymap.set('n', 'zK', function() require('ufo').peekFoldedLinesUnderCursor() end, { desc = 'Peek fold' })
       vim.keymap.set('n', '[z', function() require('ufo').goPreviousClosedFold() end,
         { desc = 'Go to previous fold' })
       vim.keymap.set('n', ']z', function() require('ufo').goNextClosedFold() end, { desc = 'Go to next fold' })
