@@ -4,6 +4,11 @@ return {
   config = function()
     local fzf = require("fzf-lua")
     fzf.setup({
+      keymap = {
+        fzf = {
+          ["ctrl-q"] = "select-all+accept"
+        }
+      },
       winopts = {
         split = "botright new"
       },
