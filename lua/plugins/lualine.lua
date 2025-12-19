@@ -82,6 +82,21 @@ local disable = {
 
 local ignore = { "help", "packer", "spectre_panel", "TelescopePrompt" }
 
+local filename = {
+  'filename',
+  file_status = true,
+  newfile_status = false,
+  path = 1,
+  shorting_target = 40, -- can be a function!
+  symbols = {
+    modified = '[~]',
+    readonly = '[-]',
+    unnamed = '[No Name]',
+    newfile = '[New]',
+  }
+}
+
+
 local opts = {
   options = {
     icons_enabled = true,
@@ -95,7 +110,8 @@ local opts = {
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "filename", branch, diff },
+    lualine_b = {
+      filename, branch, diff },
     lualine_c = {},
     lualine_x = { lsp_progress, language_server, diagnostics },
     lualine_y = { filetype },
@@ -122,5 +138,4 @@ return {
       "arkav/lualine-lsp-progress",
     },
   },
-
 }
