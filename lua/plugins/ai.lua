@@ -30,6 +30,8 @@ return {
           vim.opt_local.conceallevel = 0
         end,
       })
+      local copilot_chat = require("CopilotChat")
+      vim.keymap.set("n", "<leader>cc", copilot_chat.toggle, { desc = "[S]earch [F]iles" })
     end
 
 
