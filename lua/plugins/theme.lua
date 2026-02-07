@@ -1,13 +1,14 @@
---[[return {
-    "fcancelinha/nordern.nvim",
-    branch = "master",
-    priority = 1000,
-    config = function()
-        vim.cmd.colorscheme('nordern')
-    end,
-}]]
---
 return {
+  {
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+    config = function()
+      vim.cmd.colorscheme('kanagawa')
+    end
+  },
   {
     "aktersnurra/no-clown-fiesta.nvim",
     priority = 1000,
@@ -24,17 +25,5 @@ return {
       plugin.setup(opts)
     end,
     lazy = false,
-  },
-  {
-    "webhooked/kanso.nvim",
-    config = function()
-      local opts = {
-        theme = "zen"
-      }
-      require("kanso").setup(opts)
-      vim.cmd.colorscheme('kanso')
-    end,
-    lazy = false,
-    priority = 1000,
   }
 }
