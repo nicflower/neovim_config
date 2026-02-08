@@ -1,6 +1,4 @@
 return {
-  -- fade unused pane
-  { "TaDaa/vimade" },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
