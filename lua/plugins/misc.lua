@@ -87,13 +87,6 @@ return {
     end
   },
   {
-    'maan2003/lsp_lines.nvim',
-    config = function()
-      require("lsp_lines").setup()
-      vim.keymap.set("n", "<leader>ll", require("lsp_lines").toggle, { desc = "LSP: Toggle lsp lines" })
-    end
-  },
-  {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets' },
     version = '1.*',
