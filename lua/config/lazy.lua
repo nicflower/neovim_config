@@ -88,7 +88,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- lsp diagnostics
 vim.keymap.set('n', '<leader>dq', function() vim.diagnostic.setqflist() end, { desc = "[D]iagnostic [Q]uickfix" })
 vim.keymap.set('n', '<leader>dl', function() vim.diagnostic.setloclist() end, { desc = "[D]iagnostic [L]oclist" })
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({ virtual_text = true })
 
 -- redirects the output of a command to a temporary buffer
 vim.api.nvim_create_user_command('Redir', function(ctx)
