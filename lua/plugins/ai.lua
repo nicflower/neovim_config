@@ -1,23 +1,30 @@
 return {
   {
-    'github/copilot.vim',
+    "github/copilot.vim",
     config = function()
       vim.g.copilot_no_tab_map = true
       vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-    end
+    end,
   },
   {
     "olimorris/codecompanion.nvim",
     version = "^19.0.0",
-    opts = {},
+    opts = {
+      interactions = {
+        chat = {
+          adapter = {
+            name = "copilot",
+            model = "claude-opus-4.6",
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", desc = "[C]ode [C]ompanion" },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      local codecompanion = require("codecompanion")
-
-      vim.keymap.set("n", "<leader>cc", codecompanion.toggle, { desc = "[C]ode [C]ompanion" })
-    end
   },
 }
